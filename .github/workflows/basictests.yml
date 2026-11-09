@@ -1,0 +1,25 @@
+name: lab9-basic-tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lab9-basic-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Make executable
+        run: chmod +x validate-data.sh
+
+      - name: Test 1
+        run: test "$(./validate-data.sh 'pearsemccarthy' '0831122334')" = "PASS"
+
+      - name: Test 2
+        run: test "$(./validate-data.sh 'pearsemccarthy' '08311223344')" = "FAIL"
+
+      - name: Test 3
+        run: test "$(./validate-data.sh 'pearsemccarthyx' '0831122334')" = "FAIL"
