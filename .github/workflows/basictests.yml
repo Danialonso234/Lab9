@@ -22,4 +22,4 @@ jobs:
         run: test "$(./validate-data.sh 'pearsemccarthy' '08311223344')" = "FAIL"
 
       - name: Test 3
-        run: test "$(./validate-data.sh 'pearsemccarthyx' '0831122334')" = "FAIL"
+        run: test "$(./validate-data.sh 'pearsemccarthyxx' '0831122334')" = "FAIL"
